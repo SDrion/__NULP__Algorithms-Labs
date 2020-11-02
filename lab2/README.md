@@ -1,3 +1,6 @@
+## Task
+![alt text](https://github.com/SDrion/__NULP__Algorithms-Labs/blob/main/lab2/task.png)
+
 ## Installation
 
 ```sh
