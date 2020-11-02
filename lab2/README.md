@@ -14,7 +14,7 @@
 /lab2$ tsc main.ts && node main.js
 ```
 
-## File Description
+## Files Description
 
 #### 1) ./Model/Hamster.ts  
 Клас з назвою Hamster.  
