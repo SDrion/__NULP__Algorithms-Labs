@@ -61,7 +61,7 @@ function quickSortedByAscShoes(filename: string): void {
   console.log('Comparsions:', result[2]);
   console.log('Swaps:', result[1]);
   console.log('Result:', result[0]);
-  console.log('\x1b[33m%s\x1b[0m', '########           END           ########')
+  console.log('\x1b[33m%s\x1b[0m', '########           END           ########');
 }
 
 
