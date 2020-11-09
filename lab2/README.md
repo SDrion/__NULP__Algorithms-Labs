@@ -1,5 +1,5 @@
 ## Task
-![alt text](https://github.com/SDrion/__NULP__Algorithms-Labs/blob/main/lab2/task.png)
+![task image](https://github.com/SDrion/__NULP__Algorithms-Labs/blob/main/lab2/task.png)
 
 ## Installation
 
@@ -10,8 +10,14 @@
 
 ## Usage
 
+Start our algorithm
 ```sh
 /lab2$ npm start
+```
+
+Clean compiled files
+```sh
+/lab2$ npm run clean
 ```
 
 ## Files Description
