@@ -40,9 +40,8 @@
 - picker() -> викликає checkForAllNeigbors(), якщо не отримано true - викидає найбільш прожорливого хомяка(останнього в відсортованому масиві) і ітерує ще раз, якшо отримано true - повертає довжину масива з хомяками - це буде наша відповідь. 
 
 
-- bubbleSortByTotalValue() -> сортує масив з хомяками по totalGreedinesValue(див. п.1) в порядку зростання.
-
-- swap(array, f, s) -> у масиві міняє місцями двох хомяків з відповідними індексами f i s.
+#### 3) ./MergeSort.ts
+Сортує хомячків по totalGreedinesValue в порядку зростання.
 
 ## Algorithm description
 1) Створюємо обєкт picker = new HamsterPicker(hamsters, availableFood, totalHamsters), де:
