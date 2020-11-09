@@ -11,7 +11,7 @@
 ## Usage
 
 ```sh
-/lab2$ tsc main.ts && node main.js
+/lab2$ npm start
 ```
 
 ## Files Description
