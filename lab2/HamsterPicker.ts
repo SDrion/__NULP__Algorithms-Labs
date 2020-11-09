@@ -1,4 +1,5 @@
 import { Hamster } from './model/Hamster';
+import { merge_sort } from './MergeSort';
 
 export class HamsterPicker {
   hamsters: Hamster[] = [];
@@ -31,26 +32,8 @@ export class HamsterPicker {
       sumAllTotal += ham.totalGreedinesValue;
     }
 
-    this.bubbleSortByTotalValue();
+    this.hamsters = [...merge_sort(this.hamsters)];
 
     return sumAllTotal <= this.availableFood;
-  };
-
-  bubbleSortByTotalValue() {
-    let array = [...this.hamsters]
-    let length = array.length;
-
-    for (let i = 0; i < length; i++){
-      for ( let j = 0; j < length - i - 1; j++){
-        if (array[j].totalGreedinesValue > array[j + 1].totalGreedinesValue ){
-          this.swap(array, j, j + 1);
-        } 
-      }
-    }
-    this.hamsters = [...array];
-  };
-
-  swap(array, f: number, s: number) {
-    return [array[f], array[s]] = [array[s], array[f]];
   };
 }
