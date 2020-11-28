@@ -1,32 +1,44 @@
-export const merge_sort = function(array) {
-  function merge(left, right) {
-    const result = [];
-    let il = 0;
-    let ir = 0;
+import { Hamster } from './Hamster';
+
+export class MergeSort {
+  mergeSort(hamsters: Hamster[], l: number, r: number) {
+    if(l < r) {
+      console.log(hamsters);
+      
+      const m = Math.floor((l+r)/2);
+
+      this.mergeSort(hamsters, l, m);
+      this.mergeSort(hamsters, m + 1, r);
+
+      this.merge(hamsters, l, m, r);
+    }
+  }
+
+  merge(hamsters: Hamster[], start: number, mid: number, end: number) {
+    let start2 = mid + 1;
     
-    while(il < left.length && ir < right.length) {
-      if (left[il].totalGreedinesValue < right[ir].totalGreedinesValue){
-        result.push(left[il++]);
+    if(hamsters[mid].totalGreedinesValue <= hamsters[start2].totalGreedinesValue) {
+      return;
+    }
+
+    while(start <= mid && start2 <= end) {
+      if(hamsters[start].totalGreedinesValue <= hamsters[start2].totalGreedinesValue) {
+        start++;
       } else {
-        result.push(right[ir++]);
+        const value = hamsters[start2].totalGreedinesValue;
+        let index = start2;
+
+        while (index != start) { 
+            hamsters[index].recalculateTotalGreedines(hamsters[index-1].totalGreedinesValue); 
+            index--; 
+        }
+
+        hamsters[start].recalculateTotalGreedines(value);
+        
+        start++; 
+        mid++; 
+        start2++; 
       }
     }
-
-    return result.concat(left.slice(il)).concat(right.slice(ir));
   }
-
-  function merge_sort(items) {
-    if(items.length < 2) {
-      return items;
-    }
-
-    const middle = Math.floor(items.length / 2);
-
-    const left = items.slice(0, middle);
-    const right = items.slice(middle);
-
-    return merge(merge_sort(left), merge_sort(right));
-  }
-
-  return merge_sort(array);
-};
+}

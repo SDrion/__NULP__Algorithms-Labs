@@ -1,18 +1,21 @@
 import * as fs from 'fs';
 
-import { Hamster } from './model/Hamster';
+import { Hamster } from './Hamster';
 import { HamsterPicker } from './HamsterPicker';
 
+const firstHamsterValuesLine = 2;
+
 function readHamster() { // read data from file 
-  const data = fs.readFileSync('./hamstr_in.txt', 'utf8');
+  const data = fs.readFileSync('./test_cases/hamstr_in_1.txt', 'utf8');
   const dataLines = data.split(/\r?\n/);
   const availableFood = Number(dataLines[0]);
   const totalHamsters = Number(dataLines[1]);
   const hamsters: Hamster[] = [];
-  for(let i = 2; i < dataLines.length; i++) {
+  for(let i = firstHamsterValuesLine; i < dataLines.length; i++) {
+    const hamsterValues = dataLines[i].split(" ");
     hamsters.push(new Hamster(
-      Number(dataLines[i].split(" ")[0]),
-      Number(dataLines[i].split(" ")[1]),
+      Number(hamsterValues[0]),
+      Number(hamsterValues[1]),
       0));
   }
 
@@ -30,16 +33,15 @@ function launcher() {
   const fileData = readHamster();
   const picker = new HamsterPicker(
     fileData.hamsters,
-    fileData.availableFood,
-    fileData.totalHamsters
+    fileData.availableFood
     );
 
   
   picker.filterBySelfGreedines();
   if(picker.hamsters.length !== 0) {
-    writeResult(`You can buy: ${picker.picker()} hamster`)
+    writeResult(`You can buy: ${picker.picker()} hamster`);
   } else {
-    writeResult('You cant afford a hamster')
+    writeResult('You cant afford a hamster');
   }
 }
 

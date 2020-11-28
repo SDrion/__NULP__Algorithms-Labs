@@ -1,16 +1,16 @@
 {
-  "name": "lab2",
+  "name": "lab3",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc -t es5 main.ts && node main.js",
-    "clean": "rm *.js && rm hamstr_out.txt"
+    "clean": "rm *.js && rm output.txt"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^14.14.6"
+    "@types/node": "^14.14.9"
   }
 }

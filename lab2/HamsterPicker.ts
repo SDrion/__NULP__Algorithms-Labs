@@ -1,19 +1,18 @@
-import { Hamster } from './model/Hamster';
-import { merge_sort } from './MergeSort';
+import { Hamster } from './Hamster';
+import { MergeSort } from './MergeSort';
 
 export class HamsterPicker {
   hamsters: Hamster[] = [];
   availableFood: number;
 
-  constructor(hamsters: Hamster[], availableFood: number, totalHamsters: number) {
+  constructor(hamsters: Hamster[], availableFood: number) {
     this.hamsters = hamsters;
     this.availableFood = availableFood;
   };
 
   filterBySelfGreedines() {
-    this.hamsters = this.hamsters.filter((hamster) => {
-      return hamster.dailyFood <= this.availableFood;
-    });
+    this.hamsters = this.hamsters.filter((hamster) => 
+      hamster.dailyFood <= this.availableFood);
   };
 
   picker() {
@@ -28,11 +27,11 @@ export class HamsterPicker {
     let sumAllTotal = 0;
     
     for(const ham of this.hamsters) {
-      ham.totalGreedinesValue = ham.dailyFood + (ham.greedinesPerNeighbor * (this.hamsters.length-1));
+      ham.recalculateTotalGreedines(this.hamsters.length-1);
       sumAllTotal += ham.totalGreedinesValue;
     }
 
-    this.hamsters = [...merge_sort(this.hamsters)];
+    console.log(new MergeSort().mergeSort(this.hamsters, 0, this.hamsters.length-1));
 
     return sumAllTotal <= this.availableFood;
   };
