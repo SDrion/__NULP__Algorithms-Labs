@@ -19,7 +19,7 @@ export class PriorityQueue {
   }
 }
 
-export class PriorityNode {
+class PriorityNode {
   key: number;
 	priority: number;
 
