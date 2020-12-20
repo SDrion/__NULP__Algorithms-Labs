@@ -3,8 +3,8 @@ import * as fs from 'fs';
 import { Graph } from './Graph';
 
 
-function graphBuilder() {
-  const input = fs.readFileSync('./input.txt', 'utf8');
+function graphBuilder(fileName: string) {
+  const input = fs.readFileSync(`./${fileName}.txt`, 'utf8');
   const inputLines = input.split(/\r?\n/);
 
   const clientNodes = inputLines[1].split(' ');
@@ -28,8 +28,8 @@ function delayCalculate(path, list) {
   return result;
 }
 
-(function searchServerPosition() {
-  const {graph, clientNodes} = graphBuilder();
+function searchServerPosition(fileName: string) {
+  const {graph, clientNodes} = graphBuilder(fileName);
   const possibleServerPositions = [];
 
   for(let ver in graph._adjacencyList) {
@@ -51,13 +51,23 @@ function delayCalculate(path, list) {
     result = result > Math.max(...delaysArray) ? Math.max(...delaysArray) : result;
   }
 
-  writeResult(result);
+  writeResult(result, fileName);
 
-}) ();
+}
 
-function writeResult(result: number) {
-  fs.writeFile('output.txt', result.toString(), function (err) {
+function writeResult(result: number, outName: string) {
+  fs.writeFile(`output_${outName}.txt`, result.toString(), function (err) {
     if (err) throw err;
     console.log('Saved!');
   });
+}
+
+const tesFiles = [
+  'input_1',
+  'input_2',
+  'input_3'
+];
+
+for(let i = 0; i < tesFiles.length; i++) {
+  searchServerPosition(tesFiles[i]);
 }

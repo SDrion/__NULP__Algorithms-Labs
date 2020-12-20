@@ -37,6 +37,8 @@ export class Graph {
     neighbor,
     alt;
 
+
+    // Init the distances and queues variables
     for(vertex in this._adjacencyList) {
       if(vertex === start) {
         distances[vertex] = 0;
@@ -49,10 +51,16 @@ export class Graph {
       previous[vertex] = null;
     }
 
+
+    // Continue as long as the queue haven't been emptied
     while(!nodes.isEmpty()) {
       smallest = nodes.dequeue();
 
+
+      // Last node is finish
       if(smallest === finish) {
+
+        // Calculate path
         while(previous[smallest]) {
           path.push(smallest);
           smallest = previous[smallest];
@@ -60,10 +68,14 @@ export class Graph {
         break;
       }
 
+
+      // If we dont know distanse -> skip
       if(!smallest || distances[smallest] === this.infinity) {
         continue;
       }
 
+
+      // Calculate distance for each neighbour
       for(neighbor in this._adjacencyList[smallest]) {
         alt = distances[smallest] + this._adjacencyList[smallest][neighbor];
 
@@ -75,6 +87,9 @@ export class Graph {
       }
     }
 
+
+    // Add start to solution,
+    // and reverse it(it is from end to start)
     return path.concat(start).reverse();
   }
   

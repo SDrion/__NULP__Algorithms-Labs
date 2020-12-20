@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc -t es5 main.ts && node main.js",
-    "clean": "rm *.js && rm output.txt"
+    "clean": "rm *.js && rm output_input_1.txt && rm output_input_2.txt && rm output_input_3.txt"
   },
   "author": "",
   "license": "ISC",
