@@ -1,2 +1,2 @@
-![task 1](https://ibb.co/7jN6SVc)
-![task 2](https://ibb.co/jWN0L7L)
+![task 1](https://i.ibb.co/PFzfr4p/image.png)
+![task 2](https://i.ibb.co/8dCvjFj/image.png)
