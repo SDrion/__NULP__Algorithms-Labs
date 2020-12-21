@@ -4,18 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm *.js && rm ./output_files/*.txt",
+    "test": "npx jest",
+    "clean-compiled": "rm *.js",
+    "clean-output": "rm ./output_files/*.txt",
     "start": "tsc -t es5 main.ts && node main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^14.14.13",
-    "jest": "^26.6.3"
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",
+    "jest": "^26.6.3",
     "ts-jest": "^26.4.4"
   }
 }

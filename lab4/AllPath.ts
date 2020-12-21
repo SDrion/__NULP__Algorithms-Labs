@@ -8,7 +8,7 @@ export class AllPathAlg {
     this.graph = graph;
   }
 
-  DFS(start, end) {
+  allPath(start, end) {
 
     if (this.visited[start]) {
       return;
@@ -25,7 +25,7 @@ export class AllPathAlg {
     }
 
     this.graph[start].map(node => {
-      this.DFS(node, end);
+      this.allPath(node, end);
     });
 
     this.currentPath.pop();

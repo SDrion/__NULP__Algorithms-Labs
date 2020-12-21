@@ -9,10 +9,12 @@ export function main(fileName: string) {
   const allPath = new AllPathAlg(inputData.adjecencyList);
 
   inputData.possiblePairs.map(pair => {
-    allPath.DFS(pair[0], pair[1]);
+    allPath.allPath(pair[0], pair[1]);
   });
 
-  writeResult(allPath.simplePaths.length, fileName); 
+  writeResult(allPath.simplePaths.length, fileName);
+
+  return allPath.simplePaths.length;
 }
 
 function writeResult(result: number, outName: string) {
