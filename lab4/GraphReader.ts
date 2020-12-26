@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-const inputDataReader = (fileName: string) => {
+export const inputDataReader = (fileName: string) => {
   const input = fs.readFileSync(`./input_files/${fileName}.txt`, 'utf8');
   const inputLines = input.split(/\r?\n/);
 
@@ -25,10 +25,7 @@ const inputDataReader = (fileName: string) => {
   return { inputMatrix, matrixW, matrixH };
 }
 
-export const adjecencyListBuilder = (filename: string) => {
-  const inputData = inputDataReader(filename);
-  const inputMatrix = inputData.inputMatrix;
-  const matrixW = inputData.matrixW;
+export const adjecencyListBuilder = (inputMatrix, matrixW, matrixH) => {
 
   const adjecencyList = {};
 
@@ -60,7 +57,7 @@ export const adjecencyListBuilder = (filename: string) => {
     return index % matrixW === 0;
   });
 
-  const ends = inputData.matrixH !== 1 ?
+  const ends = matrixH !== 1 ?
     [
       inputMatrix[matrixW - 1],
       inputMatrix[inputMatrix.length - 1]

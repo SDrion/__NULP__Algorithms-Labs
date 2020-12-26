@@ -22,6 +22,7 @@ export class AllPathAlg {
       this.simplePaths.push(this.currentPath);
       this.visited[start] = false;
       this.currentPath.pop();
+      return;
     }
 
     this.graph[start].map(node => {
